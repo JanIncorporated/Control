@@ -1,0 +1,66 @@
+﻿@using Control.Data.Models;
+@using Control.Controllers;
+@using System.Security.Claims;
+@using Microsoft.AspNetCore.Identity;
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body link="black">
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+
+                <div class="row">
+                    <div class="col d-flex justify-content-end align-items-center">
+                        <form class="mt-1 mr-3" method="get" asp-action="Index">
+                            <p style="width: 300px">
+                                <input type="search" placeholder="Search..." name="search" />
+                                <input type="submit" class="btn btn-primary" />
+                            </p>
+                        </form>
+                    </div>
+                    @if (User.Identity != null)
+                    {
+                    <div class="col mt-2">
+                        <a class="btn btn-sm btn-outline-secondary" asp-controller="Account" asp-action="LogIn">Hello</a>
+                    </div>
+                    }
+                    else
+                    {
+                    <div class="col mt-2">
+                        <a class="btn btn-sm btn-outline-secondary" asp-controller="Account" asp-action="LogIn">Sign in</a>
+                    </div>
+                    }
+
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
+

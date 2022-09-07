@@ -1,0 +1,25 @@
+﻿@model CompanyUnitsViewModel
+
+<h2>All compaies</h2>
+<div class="container mt-5 mb-5">
+    <div class="row">
+        @{
+            foreach (var unit in Model.getCompanyUnits)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm" style="height: 225px">
+                        <div class="m" style="height: 225px">
+                            <img class="ibd-placeholder-img card-img-top" width="100%" height="500" src="" alt="">
+                        </div>
+                        <h2 class="mt-5"> @unit.CodeName </h2>
+                        <p class="mt-5"> @unit.Info</p>
+                    </div>
+                </div>
+
+            }
+
+        }
+    </div>
+
+</div>
+
